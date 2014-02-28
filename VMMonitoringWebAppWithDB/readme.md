@@ -1,4 +1,4 @@
-need change in web.config file next settings:
-<add key="domainUser" value="[domen]\[user]"/>
-<add key="pwd" value="[Password]"/>
-<add key="vmmserver" value="[server]"/>
+Need change in web.config file next settings:
+	1. key="domainUser" value="[domen]\[user]"
+	2. key="pwd" value="[Password]"
+	3. key="vmmserver" value="[server]"
