@@ -1,0 +1,65 @@
+﻿@model VMMonitoringWebApplication.Models.ServerModel
+@{
+    ViewBag.Title = String.Format("List of VMs from {0}:", Model.Name);
+    string url = String.Concat(Url.Action("GetVMByName", "Chart"), "/");
+}
+
+@Html.Hidden("root", Url.Action("Index"), new { id = "root" })
+<div id="container">
+    <div class="panel panel-primary center-block">
+        <div class="panel-heading">
+            <h3 class="panel-title">@ViewBag.Title</h3>
+        </div>
+        <div class="alert alert-danger error" data-bind="visible: error"><p data-bind="text: error"></p></div>
+
+        <section class="panel-body">
+            <article>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Info
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="visible: vmItems().length == 0">
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-warning"><p>Loading...</p></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody data-bind="foreach: vmItems, visible: vmItems().length > 0">
+                        <tr>
+                            <td><div class="circle" data-bind="style: { background: status }"></div></td>
+                            <td><p data-bind="text: name"></p></td>
+                            <td>
+                                <p>Memory: <span data-bind="text: memory"></span></p>
+                                <p>CPU: <span data-bind="text: cpu"></span></p>
+                                <p>Network: <span data-bind="text: network"></span></p>
+                                <p>Storage: <span data-bind="text: storage"></span></p>
+                            </td>
+                            <td><a class="btn btn-sm btn-danger" data-bind="attr: { 'href': '@url' + name() }">Go!</a></td>
+                            @*<td data-bind="visible: errorMessage"><p class="text-danger" data-bind="text: errorMessage"></p></td>*@
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/vm")
+}
+

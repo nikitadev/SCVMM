@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - VMM System monitoring</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="wrap">
+        <div class="container">
+            <header class="page-header">
+                <h2>Monitoring VMs</h2>
+            </header>
+        </div>
+
+        <div id="body" class="container">
+            @RenderBody()
+        </div>
+    </div>
+    
+    <div id="footer">
+        <footer>
+            <div class="container">
+                <p class="text-muted">&copy; @DateTime.Now.Year - Oblakoteka</p>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs")
+    @Scripts.Render("~/bundles/signalR")
+    @Scripts.Render("~/bundles/ajaxSetServer")
+    <script src="~/signalr/hubs"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿@model VMMonitoringWebApplication.Models.VMItemDto
+
+<div class="panel-heading">
+    <h3 class="panel-title">VM name is...</h3>
+</div>
+<section class="panel-body">
+    @using (Html.BeginForm("JsonAddVM", "Home", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "setServerForm", role = "form", @class = "form-inline" }))
+    {
+        <fieldset>
+            <legend>Input VM Form</legend>
+            <div class="form-group">
+                @*@Html.LabelFor(m => m.Name)*@
+                @Html.TextBoxFor(m => m.Name, new { autofocus = "autofocus", id = "serverName", @class = "form-control", placeholder = "Enter vm name" })
+                @*@Html.ValidationMessageFor(m => m.Name)*@
+            </div>
+            <input type="submit" class="btn btn-primary" value="Accept" />
+            <div class="form-group">
+                @Html.ValidationSummary()
+            </div>
+        </fieldset>
+    }
+</section>

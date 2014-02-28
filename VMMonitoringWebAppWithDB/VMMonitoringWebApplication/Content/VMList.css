@@ -1,0 +1,73 @@
+.vmList {
+    position: relative;
+    min-height: 280px;
+    display: inline-block;
+    margin: 1em;
+    padding-top: 8px;
+    text-align: center;
+    -moz-box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
+    box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
+    background-color: #ffc;
+    vertical-align: top;
+}
+
+    .vmList:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-width: 0 0 24px 24px;
+        border-style: solid;
+        border-color: #f6f6c7 #fff;
+    }
+
+    .vmList header {
+        z-index: auto;
+    }
+
+    .vmList header input, .vmList header input:focus,
+    .vmList ul input, .vmList ul input:focus {
+        font-family: 'Bradley Hand ITC';
+        outline: none;
+    }
+
+    .vmList header input {
+        border: none;
+        background: none;
+        text-align: center;
+        width: 95%;
+        font-size: 1.8em;
+    }
+
+    .vmList ul {
+        list-style: none;
+        padding: 0 0 0 12px;
+        margin: 0;
+    }
+
+    .vmList a {
+        color: silver;
+        text-decoration: none;
+        font: .8em verdana;
+    }
+
+        .vmList a.deletelist {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: silver;
+            color: white;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+
+.vmItemInput::-ms-clear {
+    display: none;
+}

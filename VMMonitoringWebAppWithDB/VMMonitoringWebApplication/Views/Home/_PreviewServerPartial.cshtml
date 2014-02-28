@@ -1,0 +1,20 @@
+﻿@model ICollection<VMMonitoringWebApplication.Models.ServerModel>
+
+@if (!Model.Any())
+{
+    <div class="message-info">
+        <p>Not preview servers</p>
+    </div>
+}
+else
+{
+    <fieldset id="previewServerList">
+        <legend>Preview Server</legend>
+        <p>
+        @foreach (var p in Model)
+        {
+            @Html.ActionLink(p.Name, "PreviewServerList", "Home", new { area = "" }, null)
+        }
+        </p>
+    </fieldset>
+}

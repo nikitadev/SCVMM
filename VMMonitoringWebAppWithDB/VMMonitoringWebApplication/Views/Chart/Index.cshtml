@@ -1,0 +1,74 @@
+﻿@model VMMonitoringWebApplication.Models.VMItemDto
+@{
+    ViewBag.Title = String.Concat("VM: ", Model.Name);
+}
+@Html.HiddenFor(m => m.Name, new { id = "vmName" })
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">@ViewBag.Title</h3>
+    </div>
+    <div class="panel-body">
+        <section class="row">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-0"></div>
+                <div class="col-md-4">
+                    <h4 class="text-center">Процессор, %</h4>
+                </div>
+                <div class="col-md-4">
+                    <select id="timeframeCPU">
+                        <option value="0"> hours </option>
+                        <option value="1"> day </option>
+                        <option value="2"> month </option>
+                    </select>
+                    <input type="button" id="filterCPU" name="filter" value="Filter" class="btn" />
+                </div>
+            </div>           
+            <div class="row" id="contentCPU" style="visibility:hidden;">
+                <div id="placeholderCPU" style="width: 600px; height: 300px; margin: 0 auto"></div>
+            </div>
+        </section>
+        <section class="row">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-0"></div>
+                <div class="col-md-4">
+                    <h4 class="text-center">Сеть, bytes/sec</h4>
+                </div>
+                <div class="col-md-4">
+                    <select id="timeframeNetwork">
+                        <option value="0"> hours </option>
+                        <option value="1"> day </option>
+                        <option value="2"> month </option>
+                    </select>
+                    <input type="button" id="filterNetwork" name="filter" value="Filter" class="btn" />
+                </div>
+            </div>
+            <div class="row" id="contentNetwork" style="visibility:hidden;">
+                <div id="placeholderNetwork" style="width: 600px; height: 300px; margin: 0 auto"></div>
+            </div>
+        </section>
+        <section class ="row">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-0"></div>
+                <div class="col-md-4">
+                    <h4 class="text-center">Дисковая система, bytes/sec</h4>
+                </div>
+                <div class="col-md-4">
+                    <select id="timeframeStorage">
+                        <option value="0"> hours </option>
+                        <option value="1"> day </option>
+                        <option value="2"> month </option>
+                    </select>
+                    <input type="button" id="filterStorage" name="filter" value="Filter" class="btn" />
+                </div>                
+            </div>
+            <div class="row" id="contentStorage" style="visibility:hidden;">
+                <div id="placeholderStorage" style="width: 600px; height: 300px; margin: 0 auto"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/chart")
+}
+

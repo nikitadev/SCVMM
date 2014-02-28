@@ -1,0 +1,22 @@
+﻿@model VMMonitoringWebApplication.Models.ServerModel
+@{
+    ViewBag.Title = "Monitoring VMs";
+}
+
+<div id="container">
+    <div class="panel panel-primary center-block" style="width:350px!important">
+        @Html.Partial("_ServerPartial")
+        @*@Html.Partial("_VMPartial")*@
+        
+        @*<section id="previewServerPanel">
+                <h2>Preview server</h2>
+                @Html.Partial("_PreviewServerPartial", Model)
+            </section>*@
+    </div>
+</div>
+
+@section scripts {
+    @*@Scripts.Render("~/bundles/knockout")*@
+    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/vm")*@
+}
